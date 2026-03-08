@@ -131,9 +131,7 @@ if [[ "$INPUT_UPDATE_PKGBUILD" == "true" || -n "$INPUT_AUR_SUBMODULE_PATH" ]]; t
   echo "::endgroup::Commit"
 
   echo "::group::Push"
-  sudo git checkout main
-  sudo git merge "update_${INPUT_PACKAGE_NAME}_to_${NEW_RELEASE}"
-  sudo git push origin main
+  sudo git push origin "update_${INPUT_PACKAGE_NAME}_to_${NEW_RELEASE}:main"
   echo "::endgroup::Push"
 else
   echo "Skipping submodule update and PKGBUILD update"
