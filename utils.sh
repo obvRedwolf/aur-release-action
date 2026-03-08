@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function generate_commit_message {
   local file_name=$1
   local new_version=$2
