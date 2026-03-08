@@ -132,6 +132,10 @@ if [[ "$INPUT_UPDATE_PKGBUILD" == "true" || -n "$INPUT_AUR_SUBMODULE_PATH" ]]; t
 
   echo "::group::Push"
   cd "$GITHUB_WORKSPACE"
+
+  sudo git fetch origin main
+  sudo git rebase origin/main
+  
   sudo git checkout -b "update_${INPUT_PACKAGE_NAME}_to_${NEW_RELEASE}"
   sudo git push origin "update_${INPUT_PACKAGE_NAME}_to_${NEW_RELEASE}:main"
   echo "::endgroup::Push"
